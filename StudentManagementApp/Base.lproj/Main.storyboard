@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="110" estimatedRowHeight="110" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KCg-3o-MAT" userLabel="TableView">
-                                <rect key="frame" x="0.0" y="182" width="393" height="602"/>
+                                <rect key="frame" x="0.0" y="182" width="393" height="553"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" rowHeight="110" id="gck-TB-Jea" customClass="StudentTableViewCell" customModule="StudentManagementApp" customModuleProvider="target">
@@ -92,6 +92,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4np-FX-yoX">
+                        <nil key="title"/>
                         <rightBarButtonItems>
                             <barButtonItem width="30" springLoaded="YES" style="plain" changesSelectionAsPrimaryAction="YES" id="ly1-1V-8rp" colorLabel="IBBuiltInLabel-Red">
                                 <imageReference key="image" image="plus.circle.dashed" catalog="system" symbolScale="large"/>
@@ -102,6 +103,9 @@
                             </barButtonItem>
                             <barButtonItem title="Item" image="moon.circle.fill" catalog="system" width="30" springLoaded="YES" style="plain" changesSelectionAsPrimaryAction="YES" id="FGH-72-njs">
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="themeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Theme-Act-001"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -113,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="55"/>
+            <point key="canvasLocation" x="2066.4122137404579" y="54.929577464788736"/>
         </scene>
         <!--StudentGalleryScene-->
         <scene sceneID="mUb-wc-R9H">
@@ -124,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okR-4d-c2w">
-                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <rect key="frame" x="0.0" y="172" width="393" height="563"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="ifO-PS-ME6">
                                     <size key="itemSize" width="128" height="128"/>
@@ -179,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWx-f2-efv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1993" y="55"/>
+            <point key="canvasLocation" x="2918.320610687023" y="54.929577464788736"/>
         </scene>
         <!--AddStudentViewController-->
         <scene sceneID="Be4-Ng-b6T">
@@ -504,7 +508,273 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g1-RV-qBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1139.6946564885495" y="757.74647887323943"/>
+            <point key="canvasLocation" x="998" y="870"/>
+        </scene>
+        <!--Admin-->
+        <scene sceneID="Add-ON-7Oa">
+            <objects>
+                <viewController storyboardIdentifier="AdminProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wVU-bF-2uO" customClass="AdminProfileViewController" customModule="StudentManagementApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIo-Bp-XFs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Scr-001" userLabel="AdminScrollView">
+                                <rect key="frame" x="0.0" y="118" width="393" height="617"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Con-001" userLabel="AdminContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="537.66666666666663"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Hdr-001" userLabel="HeaderCard">
+                                                <rect key="frame" x="16" y="16" width="361" height="166"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Ava-001" userLabel="AdminAvatarImageView">
+                                                        <rect key="frame" x="140.66666666666666" y="16.666666666666664" width="80" height="78.666666666666686"/>
+                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="Adm-Ava-H-001"/>
+                                                            <constraint firstAttribute="width" constant="80" id="Adm-Ava-W-001"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Name-001" userLabel="AdminNameLabel">
+                                                        <rect key="frame" x="16" y="104" width="329" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="admin@example.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Email-001" userLabel="AdminEmailLabel">
+                                                        <rect key="frame" x="16" y="132" width="329" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Adm-Ava-001" firstAttribute="centerX" secondItem="Adm-Hdr-001" secondAttribute="centerX" id="Adm-Hdr-Ava-Cx-001"/>
+                                                    <constraint firstItem="Adm-Ava-001" firstAttribute="top" secondItem="Adm-Hdr-001" secondAttribute="top" constant="16" id="Adm-Hdr-Ava-Tp-001"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Adm-Email-001" secondAttribute="bottom" constant="16" id="Adm-Hdr-Bo-001"/>
+                                                    <constraint firstItem="Adm-Email-001" firstAttribute="leading" secondItem="Adm-Hdr-001" secondAttribute="leading" constant="16" id="Adm-Hdr-Email-Le-001"/>
+                                                    <constraint firstItem="Adm-Email-001" firstAttribute="top" secondItem="Adm-Name-001" secondAttribute="bottom" constant="4" id="Adm-Hdr-Email-Tp-001"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Adm-Email-001" secondAttribute="trailing" constant="16" id="Adm-Hdr-Email-Tr-001"/>
+                                                    <constraint firstItem="Adm-Name-001" firstAttribute="leading" secondItem="Adm-Hdr-001" secondAttribute="leading" constant="16" id="Adm-Hdr-Name-Le-001"/>
+                                                    <constraint firstItem="Adm-Name-001" firstAttribute="top" secondItem="Adm-Ava-001" secondAttribute="bottom" constant="8" id="Adm-Hdr-Name-Tp-001"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Adm-Name-001" secondAttribute="trailing" constant="16" id="Adm-Hdr-Name-Tr-001"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Det-001" userLabel="DetailsCard">
+                                                <rect key="frame" x="16" y="198" width="361" height="211.33333333333337"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Sec-001" userLabel="SectionTitle">
+                                                        <rect key="frame" x="15.999999999999993" y="15.999999999999998" width="122.33333333333331" height="19.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Name-001" userLabel="NameRow">
+                                                        <rect key="frame" x="16" y="47.333333333333314" width="329" height="44"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Name-Icon-001">
+                                                                <rect key="frame" x="12" y="13.666666666666666" width="20" height="16.666666666666671"/>
+                                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Adm-RN-Icon-H-001"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="Adm-RN-Icon-W-001"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Name-Title-001">
+                                                                <rect key="frame" x="42" y="13.666666666666686" width="41" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="John Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Name-Value-001" userLabel="AdminDetailNameValueLabel">
+                                                                <rect key="frame" x="140" y="13" width="177" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Adm-Row-Name-Icon-001" firstAttribute="centerY" secondItem="Adm-Row-Name-001" secondAttribute="centerY" id="Adm-RN-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Name-Icon-001" firstAttribute="leading" secondItem="Adm-Row-Name-001" secondAttribute="leading" constant="12" id="Adm-RN-Le-001"/>
+                                                            <constraint firstItem="Adm-Row-Name-Title-001" firstAttribute="centerY" secondItem="Adm-Row-Name-001" secondAttribute="centerY" id="Adm-RN-Tl-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Name-Title-001" firstAttribute="leading" secondItem="Adm-Row-Name-Icon-001" secondAttribute="trailing" constant="10" id="Adm-RN-Tl-Le-001"/>
+                                                            <constraint firstItem="Adm-Row-Name-Value-001" firstAttribute="centerY" secondItem="Adm-Row-Name-001" secondAttribute="centerY" id="Adm-RN-Va-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Name-Value-001" firstAttribute="leading" secondItem="Adm-Row-Name-Title-001" secondAttribute="trailing" constant="16" id="Adm-RN-Va-Le-001"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Adm-Row-Name-Value-001" secondAttribute="trailing" constant="12" id="Adm-RN-Va-Tr-001"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Email-001" userLabel="EmailRow">
+                                                        <rect key="frame" x="16" y="99.333333333333314" width="329" height="44"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Email-Icon-001">
+                                                                <rect key="frame" x="12" y="14.333333333333336" width="20" height="15.999999999999993"/>
+                                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Adm-RE-Icon-H-001"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="Adm-RE-Icon-W-001"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Email-Title-001">
+                                                                <rect key="frame" x="42" y="13.666666666666686" width="38" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="admin@example.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Email-Value-001" userLabel="AdminDetailEmailValueLabel">
+                                                                <rect key="frame" x="96" y="13" width="221" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Adm-Row-Email-Icon-001" firstAttribute="centerY" secondItem="Adm-Row-Email-001" secondAttribute="centerY" id="Adm-RE-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Email-Icon-001" firstAttribute="leading" secondItem="Adm-Row-Email-001" secondAttribute="leading" constant="12" id="Adm-RE-Le-001"/>
+                                                            <constraint firstItem="Adm-Row-Email-Title-001" firstAttribute="centerY" secondItem="Adm-Row-Email-001" secondAttribute="centerY" id="Adm-RE-Tl-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Email-Title-001" firstAttribute="leading" secondItem="Adm-Row-Email-Icon-001" secondAttribute="trailing" constant="10" id="Adm-RE-Tl-Le-001"/>
+                                                            <constraint firstItem="Adm-Row-Email-Value-001" firstAttribute="centerY" secondItem="Adm-Row-Email-001" secondAttribute="centerY" id="Adm-RE-Va-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Email-Value-001" firstAttribute="leading" secondItem="Adm-Row-Email-Title-001" secondAttribute="trailing" constant="16" id="Adm-RE-Va-Le-001"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Adm-Row-Email-Value-001" secondAttribute="trailing" constant="12" id="Adm-RE-Va-Tr-001"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Count-001" userLabel="CountRow">
+                                                        <rect key="frame" x="16" y="151.33333333333331" width="329" height="44"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Count-Icon-001">
+                                                                <rect key="frame" x="12" y="13.666666666666664" width="20" height="18"/>
+                                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Adm-RC-Icon-H-001"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="Adm-RC-Icon-W-001"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Students" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Count-Title-001">
+                                                                <rect key="frame" x="41.999999999999993" y="13.666666666666686" width="93.333333333333314" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Row-Count-Value-001" userLabel="TotalStudentsValueLabel">
+                                                                <rect key="frame" x="306.66666666666669" y="13" width="10.333333333333314" height="18"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Adm-Row-Count-Icon-001" firstAttribute="centerY" secondItem="Adm-Row-Count-001" secondAttribute="centerY" id="Adm-RC-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Count-Icon-001" firstAttribute="leading" secondItem="Adm-Row-Count-001" secondAttribute="leading" constant="12" id="Adm-RC-Le-001"/>
+                                                            <constraint firstItem="Adm-Row-Count-Title-001" firstAttribute="centerY" secondItem="Adm-Row-Count-001" secondAttribute="centerY" id="Adm-RC-Tl-Cy-001"/>
+                                                            <constraint firstItem="Adm-Row-Count-Title-001" firstAttribute="leading" secondItem="Adm-Row-Count-Icon-001" secondAttribute="trailing" constant="10" id="Adm-RC-Tl-Le-001"/>
+                                                            <constraint firstItem="Adm-Row-Count-Value-001" firstAttribute="centerY" secondItem="Adm-Row-Count-001" secondAttribute="centerY" id="Adm-RC-Va-Cy-001"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Adm-Row-Count-Value-001" secondAttribute="trailing" constant="12" id="Adm-RC-Va-Tr-001"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Adm-Row-Count-001" secondAttribute="bottom" constant="16" id="Adm-Det-Bo-001"/>
+                                                    <constraint firstItem="Adm-Row-Count-001" firstAttribute="height" constant="44" id="Adm-Det-RC-H-001"/>
+                                                    <constraint firstItem="Adm-Row-Count-001" firstAttribute="leading" secondItem="Adm-Det-001" secondAttribute="leading" constant="16" id="Adm-Det-RC-Le-001"/>
+                                                    <constraint firstItem="Adm-Row-Count-001" firstAttribute="top" secondItem="Adm-Row-Email-001" secondAttribute="bottom" constant="8" id="Adm-Det-RC-Tp-001"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Adm-Row-Count-001" secondAttribute="trailing" constant="16" id="Adm-Det-RC-Tr-001"/>
+                                                    <constraint firstItem="Adm-Row-Email-001" firstAttribute="height" constant="44" id="Adm-Det-RE-H-001"/>
+                                                    <constraint firstItem="Adm-Row-Email-001" firstAttribute="leading" secondItem="Adm-Det-001" secondAttribute="leading" constant="16" id="Adm-Det-RE-Le-001"/>
+                                                    <constraint firstItem="Adm-Row-Email-001" firstAttribute="top" secondItem="Adm-Row-Name-001" secondAttribute="bottom" constant="8" id="Adm-Det-RE-Tp-001"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Adm-Row-Email-001" secondAttribute="trailing" constant="16" id="Adm-Det-RE-Tr-001"/>
+                                                    <constraint firstItem="Adm-Row-Name-001" firstAttribute="height" constant="44" id="Adm-Det-RN-H-001"/>
+                                                    <constraint firstItem="Adm-Row-Name-001" firstAttribute="leading" secondItem="Adm-Det-001" secondAttribute="leading" constant="16" id="Adm-Det-RN-Le-001"/>
+                                                    <constraint firstItem="Adm-Row-Name-001" firstAttribute="top" secondItem="Adm-Sec-001" secondAttribute="bottom" constant="12" id="Adm-Det-RN-Tp-001"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Adm-Row-Name-001" secondAttribute="trailing" constant="16" id="Adm-Det-RN-Tr-001"/>
+                                                    <constraint firstItem="Adm-Sec-001" firstAttribute="leading" secondItem="Adm-Det-001" secondAttribute="leading" constant="16" id="Adm-Det-Sec-Le-001"/>
+                                                    <constraint firstItem="Adm-Sec-001" firstAttribute="top" secondItem="Adm-Det-001" secondAttribute="top" constant="16" id="Adm-Det-Sec-Tp-001"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adm-Logout-001" userLabel="LogoutButton">
+                                                <rect key="frame" x="16" y="433.33333333333337" width="361" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Adm-Logout-H-001"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Log Out">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="LogoutTapped:" destination="wVU-bF-2uO" eventType="touchUpInside" id="yOK-Of-1f3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Adm-Det-001" firstAttribute="leading" secondItem="Adm-Con-001" secondAttribute="leading" constant="16" id="Adm-Con-Det-Le-001"/>
+                                            <constraint firstItem="Adm-Det-001" firstAttribute="top" secondItem="Adm-Hdr-001" secondAttribute="bottom" constant="16" id="Adm-Con-Det-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Adm-Det-001" secondAttribute="trailing" constant="16" id="Adm-Con-Det-Tr-001"/>
+                                            <constraint firstItem="Adm-Hdr-001" firstAttribute="leading" secondItem="Adm-Con-001" secondAttribute="leading" constant="16" id="Adm-Con-Hdr-Le-001"/>
+                                            <constraint firstItem="Adm-Hdr-001" firstAttribute="top" secondItem="Adm-Con-001" secondAttribute="top" constant="16" id="Adm-Con-Hdr-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Adm-Hdr-001" secondAttribute="trailing" constant="16" id="Adm-Con-Hdr-Tr-001"/>
+                                            <constraint firstItem="Adm-Logout-001" firstAttribute="leading" secondItem="Adm-Con-001" secondAttribute="leading" constant="16" id="Adm-Con-Logout-Le-001"/>
+                                            <constraint firstItem="Adm-Logout-001" firstAttribute="top" secondItem="Adm-Det-001" secondAttribute="bottom" constant="24" id="Adm-Con-Logout-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Adm-Logout-001" secondAttribute="trailing" constant="16" id="Adm-Con-Logout-Tr-001"/>
+                                            <constraint firstAttribute="bottom" secondItem="Adm-Logout-001" secondAttribute="bottom" constant="24" id="Adm-Con-Bo-001"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Adm-Con-001" firstAttribute="bottom" secondItem="Adm-Scr-001" secondAttribute="bottom" id="Adm-Scr-Con-Bo-001"/>
+                                    <constraint firstItem="Adm-Con-001" firstAttribute="leading" secondItem="Adm-Scr-001" secondAttribute="leading" id="Adm-Scr-Con-Le-001"/>
+                                    <constraint firstItem="Adm-Con-001" firstAttribute="top" secondItem="Adm-Scr-001" secondAttribute="top" id="Adm-Scr-Con-Tp-001"/>
+                                    <constraint firstItem="Adm-Con-001" firstAttribute="trailing" secondItem="Adm-Scr-001" secondAttribute="trailing" id="Adm-Scr-Con-Tr-001"/>
+                                    <constraint firstItem="Adm-Con-001" firstAttribute="width" secondItem="Adm-Scr-001" secondAttribute="width" id="Adm-Scr-Con-W-001"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="voa-yc-9cU"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="voa-yc-9cU" firstAttribute="bottom" secondItem="Adm-Scr-001" secondAttribute="bottom" id="Adm-Scr-Bo-001"/>
+                            <constraint firstItem="Adm-Scr-001" firstAttribute="leading" secondItem="xIo-Bp-XFs" secondAttribute="leading" id="Adm-Scr-Le-001"/>
+                            <constraint firstItem="Adm-Scr-001" firstAttribute="top" secondItem="voa-yc-9cU" secondAttribute="top" id="Adm-Scr-Tp-001"/>
+                            <constraint firstAttribute="trailing" secondItem="Adm-Scr-001" secondAttribute="trailing" id="Adm-Scr-Tr-001"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Admin" image="person.fill" catalog="system" springLoaded="YES" id="CXo-bA-gHS"/>
+                    <connections>
+                        <outlet property="AdminImage" destination="Adm-Ava-001" id="GcH-Ts-X7b"/>
+                        <outlet property="LogoutButton" destination="Adm-Logout-001" id="bHA-6e-sD2"/>
+                        <outlet property="accountDetails" destination="Adm-Sec-001" id="1Yk-Jf-LDM"/>
+                        <outlet property="adminDetailEmailValueLabel" destination="Adm-Row-Email-Value-001" id="Adm-Email-Detail-001"/>
+                        <outlet property="adminDetailNameValueLabel" destination="Adm-Row-Name-Value-001" id="Adm-Name-Detail-001"/>
+                        <outlet property="adminEmail" destination="Adm-Email-001" id="Iaq-F0-weS"/>
+                        <outlet property="adminName" destination="Adm-Name-001" id="pGV-s9-2IS"/>
+                        <outlet property="totalStudentsCount" destination="Adm-Row-Count-Value-001" id="FlY-S6-d7D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8XV-ay-Ob0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2192" y="870"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="HnS-Gh-iRb">
@@ -876,10 +1146,11 @@
             </objects>
             <point key="canvasLocation" x="1526" y="-626"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Students-->
         <scene sceneID="cq2-MC-C6w">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kpf-K6-0I1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Students" image="person.3.fill" catalog="system" id="T2q-Ql-c7x"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYl-Vs-dAd">
                         <rect key="frame" x="0.0" y="118" width="393" height="54"/>
@@ -891,7 +1162,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VC9-JJ-SL9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="55"/>
+            <point key="canvasLocation" x="1127.4809160305342" y="54.929577464788736"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="cAE-Ug-Qwd">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m8R-Zj-WP7" customClass="MainTabBarController" customModule="StudentManagementApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="htB-fT-m79">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Kpf-K6-0I1" kind="relationship" relationship="viewControllers" id="zUX-q8-5eU"/>
+                        <segue destination="wVU-bF-2uO" kind="relationship" relationship="viewControllers" id="YYP-t0-lAS"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9OI-H2-YEo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="55"/>
         </scene>
     </scenes>
     <resources>
@@ -901,7 +1191,9 @@
         <image name="lock.fill" catalog="system" width="111" height="128"/>
         <image name="mail.stack" catalog="system" width="126" height="128"/>
         <image name="moon.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.circle.dashed" catalog="system" width="128" height="123"/>
         <image name="shield.lefthalf.filled.badge.checkmark" catalog="system" width="122" height="128"/>
@@ -931,6 +1223,9 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.3803921569" green="0.33333333329999998" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.21960784310000001" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

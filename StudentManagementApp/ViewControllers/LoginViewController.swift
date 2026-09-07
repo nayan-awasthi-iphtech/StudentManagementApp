@@ -8,6 +8,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         for v in view.subviews where v.frame.height == 52 || v.frame.height == 50 {
@@ -52,10 +53,8 @@ class LoginViewController: UIViewController {
     }
     
     deinit {
-        // If this never prints when popping/dismissing, you have a retain cycle
         print("LoginViewController deallocated - no leak")
     }
-    
     
     @IBAction func loginTapped(_ sender: Any) {
         guard let email = emailField.text?.trimmingCharacters(in: .whitespaces), !email.isEmpty,
@@ -65,17 +64,8 @@ class LoginViewController: UIViewController {
         }
         
         if let admin = CoreDataManager.shared.fetchAdmin(byEmail: email), admin.password == password {
+            // AuthManager updates user defaults AND transitions rootViewController to MainTabBarController
             AuthManager.shared.login(email: email)
-            // Navigate to Students list wrapped in NavigationController — preserve theme
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let studentVC = storyboard.instantiateViewController(withIdentifier: "Students")
-            let nav = UINavigationController(rootViewController: studentVC)
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                    window.rootViewController = nav
-                }, completion: { _ in ThemeManager.shared.applyCurrent() })
-            }
         } else {
             showAlert(title: "Login Failed", message: "Invalid email or password.")
         }

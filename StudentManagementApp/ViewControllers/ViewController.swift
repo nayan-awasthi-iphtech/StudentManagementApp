@@ -11,8 +11,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var themeBarButtonItem: UIBarButtonItem!
-    
-    // MVVM: ViewModel owns Core Data fetch
+    @IBOutlet weak var LogoutButton: UIBarButtonItem!
+
     private let viewModel = StudentListViewModel()
     var students: [StudentModel] { viewModel.students }
     
@@ -77,10 +77,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ThemeManager.shared.toggle()
         syncThemeIcon()
     }
+
+    @IBAction func logoutTapped(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Log Out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
+            AuthManager.shared.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
     
     private func updateThemeIcon(for style: UIUserInterfaceStyle) {
         let isDark = (style == .dark)
         themeBarButtonItem.image = UIImage(systemName: isDark ? "sun.max.fill" : "moon.circle.fill")
+        // Color also adapts to theme — visible contrast in both modes
+        themeBarButtonItem.tintColor = isDark ? UIColor.systemYellow : UIColor.systemOrange
+        // Optional: also update navigation bar appearance for whole-app coherence
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue, .font: UIFont.boldSystemFont(ofSize: 25)]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

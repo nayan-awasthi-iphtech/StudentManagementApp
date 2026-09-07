@@ -48,6 +48,10 @@ class CoreDataManager{
         student.course = course
         student.email = email
         student.profileImage = profileImageData
+        // Per-admin isolation: link student to currently logged-in admin (Admin.admin_student <-> Student.student_admin)
+        if let currentAdmin = AuthManager.shared.currentAdmin {
+            student.student_admin = currentAdmin
+        }
         
         saveContext()
         return student
@@ -56,6 +60,11 @@ class CoreDataManager{
     func fetchAllStudents() -> [Student] {
         let request: NSFetchRequest<Student> = Student.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        if let currentAdmin = AuthManager.shared.currentAdmin {
+            request.predicate = NSPredicate(format: "student_admin == %@", currentAdmin)
+        } else if AuthManager.shared.currentAdminEmail != nil {
+            request.predicate = NSPredicate(format: "student_admin.email ==[c] %@", AuthManager.shared.currentAdminEmail!)
+        }
         return (try? context.fetch(request)) ?? []
     }
     

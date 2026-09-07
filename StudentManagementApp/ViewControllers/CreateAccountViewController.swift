@@ -30,17 +30,8 @@ class CreateAccountViewController: UIViewController {
         let success = CoreDataManager.shared.registerAdmin(name: name, email: email, password: password)
         
         if success {
+            // AuthManager.login already sets root to MainTabBarController (Students + Admin tabs) + preserves theme
             AuthManager.shared.login(email: email)
-            // Navigate to Students list wrapped in NavigationController — preserve theme
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let studentVC = storyboard.instantiateViewController(withIdentifier: "Students")
-            let nav = UINavigationController(rootViewController: studentVC)
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first {
-                UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
-                    window.rootViewController = nav
-                }, completion: { _ in ThemeManager.shared.applyCurrent() })
-            }
         } else {
             showAlert(title: "Registration Failed", message: "An account with this email is already registered")
         }
