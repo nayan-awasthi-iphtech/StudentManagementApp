@@ -1183,8 +1183,235 @@
             </objects>
             <point key="canvasLocation" x="245" y="55"/>
         </scene>
+        <!--Welcome-->
+        <scene sceneID="Wel-Scene-001">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wel-VC-001" customClass="WelcomeViewController" customModule="StudentManagementApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wel-View-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Scr-001">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Con-001">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="WelcomeHero" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Hero-001" userLabel="HeroImageView">
+                                                <rect key="frame" x="16" y="16" width="361" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="Wel-Hero-H-001"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Title1-001" userLabel="WelcomeTitleSmall">
+                                                <rect key="frame" x="16" y="332" width="361" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Manager" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Title2-001" userLabel="WelcomeTitleLarge">
+                                                <rect key="frame" x="16" y="356" width="361" height="33"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <color key="textColor" systemColor="systemIndigoColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage students, courses and galleries — all in one beautiful, offline-first app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Sub-001" userLabel="WelcomeSubtitle">
+                                                <rect key="frame" x="24" y="397" width="345" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Feats-001" userLabel="FeaturesStack">
+                                                <rect key="frame" x="16" y="453" width="361" height="110"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FStk-001">
+                                                        <rect key="frame" x="12" y="12" width="337" height="86"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FRow1-001">
+                                                                <rect key="frame" x="0.0" y="0.0" width="337" height="20"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.3.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FIcon1-001">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="20" id="Wel-FIcon1-W-001"/>
+                                                                            <constraint firstAttribute="height" constant="20" id="Wel-FIcon1-H-001"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add, edit &amp; organize student profiles with photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FLab1-001">
+                                                                        <rect key="frame" x="30" y="0.0" width="307" height="20"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" white="0.33" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FRow2-001">
+                                                                <rect key="frame" x="0.0" y="34" width="337" height="20"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="graduationcap.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FIcon2-001">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="20" id="Wel-FIcon2-W-001"/>
+                                                                            <constraint firstAttribute="height" constant="20" id="Wel-FIcon2-H-001"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create course galleries with photo collections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FLab2-001">
+                                                                        <rect key="frame" x="30" y="0.0" width="307" height="20"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" white="0.33" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FRow3-001">
+                                                                <rect key="frame" x="0.0" y="68" width="337" height="20"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="shield.lefthalf.filled.badge.checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FIcon3-001">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="20" id="Wel-FIcon3-W-001"/>
+                                                                            <constraint firstAttribute="height" constant="20" id="Wel-FIcon3-H-001"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure on-device storage with light &amp; dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-FLab3-001">
+                                                                        <rect key="frame" x="30" y="0.0" width="307" height="20"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <color key="textColor" white="0.33" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Wel-FStk-001" secondAttribute="bottom" constant="12" id="Wel-Feats-Bo-001"/>
+                                                    <constraint firstItem="Wel-FStk-001" firstAttribute="leading" secondItem="Wel-Feats-001" secondAttribute="leading" constant="12" id="Wel-Feats-Le-001"/>
+                                                    <constraint firstItem="Wel-FStk-001" firstAttribute="top" secondItem="Wel-Feats-001" secondAttribute="top" constant="12" id="Wel-Feats-Tp-001"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Wel-FStk-001" secondAttribute="trailing" constant="12" id="Wel-Feats-Tr-001"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Get-001" userLabel="GetStartedButton">
+                                                <rect key="frame" x="16" y="587" width="361" height="52"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="Wel-Get-H-001"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <state key="normal" title="Get Started">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="getStartedTapped:" destination="Wel-VC-001" eventType="touchUpInside" id="Wel-Get-Act-001"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Login-001" userLabel="LoginButton">
+                                                <rect key="frame" x="16" y="651" width="361" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Wel-Login-H-001"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Already have an account? Log In">
+                                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logInTapped:" destination="Wel-VC-001" eventType="touchUpInside" id="Wel-Login-Act-001"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offline-first • Core Data • MVVM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wel-Foot-001" userLabel="FooterLabel">
+                                                <rect key="frame" x="16" y="707" width="361" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Wel-Foot-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-Foot-Le-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Foot-001" secondAttribute="trailing" constant="16" id="Wel-Con-Foot-Tr-001"/>
+                                            <constraint firstItem="Wel-Foot-001" firstAttribute="top" secondItem="Wel-Login-001" secondAttribute="bottom" constant="12" id="Wel-Con-Foot-Tp-001"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wel-Foot-001" secondAttribute="bottom" constant="24" id="Wel-Con-Bo-001"/>
+                                            <constraint firstItem="Wel-Feats-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-Feats-Le-001"/>
+                                            <constraint firstItem="Wel-Feats-001" firstAttribute="top" secondItem="Wel-Sub-001" secondAttribute="bottom" constant="16" id="Wel-Con-Feats-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Feats-001" secondAttribute="trailing" constant="16" id="Wel-Con-Feats-Tr-001"/>
+                                            <constraint firstItem="Wel-Get-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-Get-Le-001"/>
+                                            <constraint firstItem="Wel-Get-001" firstAttribute="top" secondItem="Wel-Feats-001" secondAttribute="bottom" constant="24" id="Wel-Con-Get-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Get-001" secondAttribute="trailing" constant="16" id="Wel-Con-Get-Tr-001"/>
+                                            <constraint firstItem="Wel-Hero-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-Hero-Le-001"/>
+                                            <constraint firstItem="Wel-Hero-001" firstAttribute="top" secondItem="Wel-Con-001" secondAttribute="top" constant="16" id="Wel-Con-Hero-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Hero-001" secondAttribute="trailing" constant="16" id="Wel-Con-Hero-Tr-001"/>
+                                            <constraint firstItem="Wel-Login-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-Login-Le-001"/>
+                                            <constraint firstItem="Wel-Login-001" firstAttribute="top" secondItem="Wel-Get-001" secondAttribute="bottom" constant="12" id="Wel-Con-Login-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Login-001" secondAttribute="trailing" constant="16" id="Wel-Con-Login-Tr-001"/>
+                                            <constraint firstItem="Wel-Sub-001" firstAttribute="centerX" secondItem="Wel-Con-001" secondAttribute="centerX" id="Wel-Con-Sub-Cx-001"/>
+                                            <constraint firstItem="Wel-Sub-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="24" id="Wel-Con-Sub-Le-001"/>
+                                            <constraint firstItem="Wel-Sub-001" firstAttribute="top" secondItem="Wel-Title2-001" secondAttribute="bottom" constant="8" id="Wel-Con-Sub-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Sub-001" secondAttribute="trailing" constant="24" id="Wel-Con-Sub-Tr-001"/>
+                                            <constraint firstItem="Wel-Title1-001" firstAttribute="centerX" secondItem="Wel-Con-001" secondAttribute="centerX" id="Wel-Con-T1-Cx-001"/>
+                                            <constraint firstItem="Wel-Title1-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-T1-Le-001"/>
+                                            <constraint firstItem="Wel-Title1-001" firstAttribute="top" secondItem="Wel-Hero-001" secondAttribute="bottom" constant="16" id="Wel-Con-T1-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Title1-001" secondAttribute="trailing" constant="16" id="Wel-Con-T1-Tr-001"/>
+                                            <constraint firstItem="Wel-Title2-001" firstAttribute="centerX" secondItem="Wel-Con-001" secondAttribute="centerX" id="Wel-Con-T2-Cx-001"/>
+                                            <constraint firstItem="Wel-Title2-001" firstAttribute="leading" secondItem="Wel-Con-001" secondAttribute="leading" constant="16" id="Wel-Con-T2-Le-001"/>
+                                            <constraint firstItem="Wel-Title2-001" firstAttribute="top" secondItem="Wel-Title1-001" secondAttribute="bottom" constant="4" id="Wel-Con-T2-Tp-001"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wel-Title2-001" secondAttribute="trailing" constant="16" id="Wel-Con-T2-Tr-001"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Wel-Con-001" firstAttribute="bottom" secondItem="Wel-Scr-001" secondAttribute="bottom" id="Wel-Scr-Con-Bo-001"/>
+                                    <constraint firstItem="Wel-Con-001" firstAttribute="leading" secondItem="Wel-Scr-001" secondAttribute="leading" id="Wel-Scr-Con-Le-001"/>
+                                    <constraint firstItem="Wel-Con-001" firstAttribute="top" secondItem="Wel-Scr-001" secondAttribute="top" id="Wel-Scr-Con-Tp-001"/>
+                                    <constraint firstItem="Wel-Con-001" firstAttribute="trailing" secondItem="Wel-Scr-001" secondAttribute="trailing" id="Wel-Scr-Con-Tr-001"/>
+                                    <constraint firstItem="Wel-Con-001" firstAttribute="width" secondItem="Wel-Scr-001" secondAttribute="width" id="Wel-Scr-Con-W-001"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wel-Safe-001"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wel-Safe-001" firstAttribute="bottom" secondItem="Wel-Scr-001" secondAttribute="bottom" id="Wel-Scr-Bo-001"/>
+                            <constraint firstItem="Wel-Scr-001" firstAttribute="leading" secondItem="Wel-View-001" secondAttribute="leading" id="Wel-Scr-Le-001"/>
+                            <constraint firstItem="Wel-Scr-001" firstAttribute="top" secondItem="Wel-Safe-001" secondAttribute="top" id="Wel-Scr-Tp-001"/>
+                            <constraint firstAttribute="trailing" secondItem="Wel-Scr-001" secondAttribute="trailing" id="Wel-Scr-Tr-001"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="heroImageView" destination="Wel-Hero-001" id="Wel-Out-Hero-001"/>
+                        <outlet property="getStartedButton" destination="Wel-Get-001" id="Wel-Out-Get-001"/>
+                        <outlet property="logInButton" destination="Wel-Login-001" id="Wel-Out-Login-001"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wel-First-001" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-480" y="-626"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="WelcomeHero" width="4500" height="4500"/>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
         <image name="envelope.fill" catalog="system" width="128" height="85"/>
         <image name="graduationcap.fill" catalog="system" width="128" height="108"/>

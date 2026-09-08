@@ -41,7 +41,15 @@ class AuthManager {
         UserDefaults.standard.set(false, forKey: loggedInKey)
         UserDefaults.standard.removeObject(forKey: activeAdminKey)
         
-        setRootViewController(storyboardID: "LoginViewController")
+        // Logout ke baad bhi Welcome hi home hai – programmatically via WelcomeRouter / setRoot
+        setRootViewController(storyboardID: "WelcomeViewController")
+        // Alternative: WelcomeRouter.shared.setWelcomeAsRoot(window: currentWindow) – programmatic
+    }
+
+    private var currentWindow: UIWindow? {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let delegate = scene.delegate as? SceneDelegate else { return nil }
+        return delegate.window
     }
     
     func setRootViewController(storyboardID: String) {
@@ -53,8 +61,10 @@ class AuthManager {
         let targetVC = storyboard.instantiateViewController(withIdentifier: storyboardID)
         
         let rootVC: UIViewController
-        if storyboardID == "LoginViewController" {
-            rootVC = UINavigationController(rootViewController: targetVC)
+        if storyboardID == "LoginViewController" || storyboardID == "WelcomeViewController" {
+            let nav = UINavigationController(rootViewController: targetVC)
+            nav.setNavigationBarHidden(storyboardID == "WelcomeViewController", animated: false)
+            rootVC = nav
         } else {
             rootVC = targetVC
         }

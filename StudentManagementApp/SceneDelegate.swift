@@ -21,9 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let tabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarController")
             window.rootViewController = tabBarVC
         } else {
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            let nav = UINavigationController(rootViewController: loginVC)
+            // First time OR logout (not logged in) -> Welcome is home (Storyboard UI, programmatic routing)
+            // WelcomeRouter handles root programmatically
+            let welcomeVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController")
+            let nav = UINavigationController(rootViewController: welcomeVC)
+            nav.setNavigationBarHidden(true, animated: false)
             window.rootViewController = nav
+            // Alternative programmatic way (same result): WelcomeRouter.shared.setWelcomeAsRoot(window: window, animated: false)
         }
         
         self.window = window
