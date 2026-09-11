@@ -85,7 +85,7 @@ class AdminProfileViewController: UIViewController {
     }
 
     private func configureUI() {
-        AdminImage.tintColor = .systemBlue
+        AdminImage.tintColor = .black
         navigationItem.title = "Admin"
         navigationController?.navigationBar.prefersLargeTitles = false
     }

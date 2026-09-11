@@ -19,9 +19,12 @@ class StudentTableViewCell: UITableViewCell {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
-        cardView.layer.cornerRadius = 12
+        cardView.layer.cornerRadius = 16
         cardView.layer.masksToBounds = false
-        cardView.backgroundColor = .secondarySystemGroupedBackground
+        // cardView.backgroundColor is set in storyboard (white = lighter than cream background)
+        // Do not override here so storyboard changes reflect at runtime
+        cardView.layer.borderColor = UIColor.black.withAlphaComponent(0.08).cgColor
+        cardView.layer.borderWidth = 1
         
         nameLabel.textColor = .label
         courseLabel.textColor = .secondaryLabel
@@ -36,7 +39,7 @@ class StudentTableViewCell: UITableViewCell {
         super.layoutSubviews()
 
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
-        cardView.layer.shadowPath = UIBezierPath(roundedRect: cardView.bounds, cornerRadius: 12).cgPath
+        cardView.layer.shadowPath = UIBezierPath(roundedRect: cardView.bounds, cornerRadius: 16).cgPath
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

@@ -8,15 +8,11 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // cornerRadius via code ensures runtime matches storyboard preview
+        // Drizzle/Dribbble theme is strictly Storyboard - runtime attrs handle 14pt cards + 28 pill
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        for v in view.subviews where v.frame.height == 52 || v.frame.height == 50 {
-            v.layer.cornerRadius = 12
-            v.layer.masksToBounds = true
-            v.clipsToBounds = true
-        }
+        // No programmatic cornerRadius - keep Storyboard values
     }
     
     @IBAction func SignUpTapped(_ sender: Any) {

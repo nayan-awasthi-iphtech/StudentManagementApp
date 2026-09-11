@@ -11,11 +11,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        for v in view.subviews where v.frame.height == 52 || v.frame.height == 50 {
-            v.layer.cornerRadius = 12
-            v.layer.masksToBounds = true
-            v.clipsToBounds = true
-        }
+        // Drizzle theme: strictly Storyboard-driven (no code cornerRadius)
+        // Cards 14pt + button 28 capsule are set via IB runtime attributes
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
@@ -24,17 +21,17 @@ class LoginViewController: UIViewController {
             dismiss(animated: true)
             return
         }
-        // Case 2: Login is root in nav (SceneDelegate not logged in) -> push CreateAccount
+        // Welcome → Login → Sign Up must push CreateAccount (was incorrectly popping to Welcome when count>1)
         if let nav = navigationController {
-            if nav.viewControllers.count > 1 {
-                nav.popViewController(animated: true)
-                return
-            } else {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let createVC = storyboard.instantiateViewController(withIdentifier: "CreateAccount")
-                nav.pushViewController(createVC, animated: true)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let createVC = storyboard.instantiateViewController(withIdentifier: "CreateAccount")
+            // If CreateAccount already in stack, pop to it instead of pushing duplicate
+            if let existing = nav.viewControllers.first(where: { $0 is CreateAccountViewController }) {
+                nav.popToViewController(existing, animated: true)
                 return
             }
+            nav.pushViewController(createVC, animated: true)
+            return
         }
         // Fallback: no nav, set root to CreateAccount
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

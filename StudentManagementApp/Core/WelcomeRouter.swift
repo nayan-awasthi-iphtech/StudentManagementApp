@@ -14,14 +14,10 @@ final class WelcomeRouter {
     static let shared = WelcomeRouter()
     private init() {}
 
-    // MARK: - Public API (programmatically)
-
-    /// First time OR logout ke baad Welcome home se Login pe le jaana
     func navigateToLogin(from viewController: UIViewController) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
 
-        // Agar nav stack me hai to push (programmatically), nahi to present
         if let nav = viewController.navigationController {
             nav.setNavigationBarHidden(false, animated: false)
             nav.pushViewController(loginVC, animated: true)
@@ -31,7 +27,6 @@ final class WelcomeRouter {
         }
     }
 
-    /// Optional: CreateAccount pe le jaana (agar future me chahiye)
     func navigateToCreateAccount(from viewController: UIViewController) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createVC = storyboard.instantiateViewController(withIdentifier: "CreateAccount")
@@ -44,9 +39,6 @@ final class WelcomeRouter {
         }
     }
 
-    // MARK: - Root handling (programmatically)
-
-    /// App launch ya logout pe Welcome ko root banana – SceneDelegate / AuthManager se call
     func setWelcomeAsRoot(window: UIWindow?, animated: Bool = true) {
         guard let window = window else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -66,9 +58,7 @@ final class WelcomeRouter {
         }
     }
 
-    /// Welcome se hi check karke Login pe redirect (agar kahi direct call karna ho)
     func handleGetStarted(from viewController: UIViewController) {
-        // Requirement: naye user / first time / logout -> Get Started == Login
         navigateToLogin(from: viewController)
     }
 }

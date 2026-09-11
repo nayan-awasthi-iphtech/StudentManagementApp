@@ -30,12 +30,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .systemBackground
+        appearance.backgroundColor = UIColor(red: 0.996, green: 0.972, blue: 0.902, alpha: 1)
         appearance.shadowColor = .clear
         
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.systemBlue,
-            .font: UIFont.boldSystemFont(ofSize: 25)
+            .foregroundColor: UIColor.black,
+            .font: UIFont.boldSystemFont(ofSize: 20)
         ]
         
         navigationController?.navigationBar.standardAppearance = appearance
@@ -95,8 +95,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Optional: also update navigation bar appearance for whole-app coherence
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .systemBackground
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue, .font: UIFont.boldSystemFont(ofSize: 25)]
+        appearance.backgroundColor = UIColor(red: 0.996, green: 0.972, blue: 0.902, alpha: 1)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont.boldSystemFont(ofSize: 20)]
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }

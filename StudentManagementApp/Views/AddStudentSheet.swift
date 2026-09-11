@@ -11,8 +11,10 @@ enum AddStudentSheet {
 
     static func styleCard(_ view: UIView?) {
         guard let v = view else { return }
-        v.backgroundColor = .secondarySystemGroupedBackground
-        v.layer.cornerRadius = 12
+        v.backgroundColor = UIColor(red: 1, green: 0.992, blue: 0.96, alpha: 1)
+        v.layer.cornerRadius = 14
+        v.layer.borderColor = UIColor.black.withAlphaComponent(0.08).cgColor
+        v.layer.borderWidth = 1
         v.layer.shadowColor = UIColor.label.cgColor
         v.layer.shadowOpacity = 0.08
         v.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -30,7 +32,9 @@ enum AddStudentSheet {
     }
 
     static func stylePrimaryButton(_ button: UIButton?) {
-        button?.layer.cornerRadius = 12
+        button?.layer.cornerRadius = 28
         button?.layer.masksToBounds = true
+        button?.backgroundColor = .black
+        button?.setTitleColor(.white, for: .normal)
     }
 }
