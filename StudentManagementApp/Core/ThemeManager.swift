@@ -22,7 +22,7 @@ final class ThemeManager {
 
         var iconName: String {
             switch self {
-            case .dark: return "sun.max.fill"      // show sun when dark
+            case .dark: return "sun.max.fill"
             case .light, .system: return "moon.circle.fill"
             }
         }
@@ -31,8 +31,6 @@ final class ThemeManager {
     var current: AppTheme {
         get {
             let raw = UserDefaults.standard.integer(forKey: themeKey)
-            // integer(forKey:) returns 0 if not set -> maps to .system, but we treat first launch as system
-            // To distinguish not-set vs system, we check if key exists
             if UserDefaults.standard.object(forKey: themeKey) == nil {
                 return .system
             }
@@ -47,27 +45,22 @@ final class ThemeManager {
     /// Apply theme to all windows (whole app)
     func apply(_ theme: AppTheme) {
         let style = theme.userInterfaceStyle
-        // Apply to all connected scenes' windows - ensures whole app changes
         for scene in UIApplication.shared.connectedScenes {
             guard let windowScene = scene as? UIWindowScene else { continue }
             for window in windowScene.windows {
                 window.overrideUserInterfaceStyle = style
             }
         }
-        // Also apply to SceneDelegate's window if accessible
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let delegate = windowScene.delegate as? SceneDelegate,
            let window = delegate.window {
             window.overrideUserInterfaceStyle = style
         }
     }
-
-    /// Call on launch to restore saved theme
     func applyCurrent() {
         apply(current)
     }
 
-    /// Toggle light <-> dark (if system, toggle to opposite of current trait)
     func toggle() {
         let currentStyle: UIUserInterfaceStyle
         // Determine effective style first
@@ -80,7 +73,6 @@ final class ThemeManager {
 
         let isDark: Bool
         if currentStyle == .unspecified {
-            // Follow system -> check system trait
             isDark = UITraitCollection.current.userInterfaceStyle == .dark
         } else {
             isDark = currentStyle == .dark

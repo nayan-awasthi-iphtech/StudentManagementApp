@@ -1,6 +1,5 @@
 import UIKit
 
-// Simple helper for visuals that storyboard can't do
 enum AddStudentSheet {
 
     static func styleHandle(_ view: UIView?) {
