@@ -51,7 +51,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        // Keep icon in sync when system theme changes and we are in .system mode
         if ThemeManager.shared.current == .system {
             syncThemeIcon()
         }
@@ -73,7 +72,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func themeButtonTapped(_ sender: UIBarButtonItem) {
-        // Whole-app change via ThemeManager — applies to all windows and persists
         ThemeManager.shared.toggle()
         syncThemeIcon()
     }
@@ -90,9 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     private func updateThemeIcon(for style: UIUserInterfaceStyle) {
         let isDark = (style == .dark)
         themeBarButtonItem.image = UIImage(systemName: isDark ? "sun.max.fill" : "moon.circle.fill")
-        // Color also adapts to theme — visible contrast in both modes
         themeBarButtonItem.tintColor = isDark ? UIColor.systemYellow : UIColor.systemOrange
-        // Optional: also update navigation bar appearance for whole-app coherence
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 0.996, green: 0.972, blue: 0.902, alpha: 1)
@@ -188,7 +184,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    // Kept for compatibility if other code calls it
     func addStudent(_ student: StudentModel) {
         viewModel.loadStudents()
     }

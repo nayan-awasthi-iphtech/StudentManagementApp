@@ -19,12 +19,10 @@ class AuthManager {
         return UserDefaults.standard.bool(forKey: loggedInKey)
     }
 
-    /// Email of currently logged-in admin (lowercased) — persisted in UserDefaults
     var currentAdminEmail: String? {
         return UserDefaults.standard.string(forKey: activeAdminKey)
     }
 
-    /// Fetch Admin object for the current session from Core Data
     var currentAdmin: Admin? {
         guard let email = currentAdminEmail else { return nil }
         return CoreDataManager.shared.fetchAdmin(byEmail: email)
@@ -41,9 +39,7 @@ class AuthManager {
         UserDefaults.standard.set(false, forKey: loggedInKey)
         UserDefaults.standard.removeObject(forKey: activeAdminKey)
         
-        // Logout ke baad bhi Welcome hi home hai – programmatically via WelcomeRouter / setRoot
         setRootViewController(storyboardID: "WelcomeViewController")
-        // Alternative: WelcomeRouter.shared.setWelcomeAsRoot(window: currentWindow) – programmatic
     }
 
     private var currentWindow: UIWindow? {

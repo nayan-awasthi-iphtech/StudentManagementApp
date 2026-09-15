@@ -48,7 +48,6 @@ class CoreDataManager{
         student.course = course
         student.email = email
         student.profileImage = profileImageData
-        // Per-admin isolation: link student to currently logged-in admin (Admin.admin_student <-> Student.student_admin)
         if let currentAdmin = AuthManager.shared.currentAdmin {
             student.student_admin = currentAdmin
         }

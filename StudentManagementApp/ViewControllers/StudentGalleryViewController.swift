@@ -42,7 +42,6 @@ class StudentGalleryViewController: UIViewController, UICollectionViewDataSource
         navigationItem.title = viewModel?.title ?? "Gallery"
         navigationItem.largeTitleDisplayMode = .never
         
-        // Top right Add Button
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,

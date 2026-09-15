@@ -1,9 +1,7 @@
 import UIKit
 
 class AddStudentViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    
-    // MARK: - Outlets (connected in storyboard)
-    @IBOutlet weak var handleView: UIView!
+        @IBOutlet weak var handleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -24,7 +22,6 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     
     var studentToEdit: StudentModel?
     
-    // MVVM: ViewModel handles validation + Core Data save + dummy GalleryImageName generation
     var viewModel = AddStudentViewModel()
     var onSave: ((StudentModel) -> Void)?
     private var selectedImage: UIImage?
@@ -54,7 +51,6 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Small polish that storyboard can't do
         AddStudentSheet.styleHandle(handleView)
         AddStudentSheet.styleAvatar(avatarImageView, container: avatarContainerView, cameraButton: avatarCameraButton)
         AddStudentSheet.styleCard(nameCardView)
@@ -62,9 +58,6 @@ class AddStudentViewController: UIViewController, UIImagePickerControllerDelegat
         AddStudentSheet.styleCard(courseCardView)
         AddStudentSheet.stylePrimaryButton(saveButton)
     }
-    
-    // MARK: - Actions
-    
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
         let picker = UIImagePickerController()

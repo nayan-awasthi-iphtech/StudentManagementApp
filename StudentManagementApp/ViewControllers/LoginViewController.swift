@@ -11,21 +11,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // Drizzle theme: strictly Storyboard-driven (no code cornerRadius)
-        // Cards 14pt + button 28 capsule are set via IB runtime attributes
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        // Case 1: Login was presented modally from CreateAccount -> dismiss
         if presentingViewController != nil {
             dismiss(animated: true)
             return
         }
-        // Welcome → Login → Sign Up must push CreateAccount (was incorrectly popping to Welcome when count>1)
         if let nav = navigationController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let createVC = storyboard.instantiateViewController(withIdentifier: "CreateAccount")
-            // If CreateAccount already in stack, pop to it instead of pushing duplicate
             if let existing = nav.viewControllers.first(where: { $0 is CreateAccountViewController }) {
                 nav.popToViewController(existing, animated: true)
                 return
@@ -33,7 +28,6 @@ class LoginViewController: UIViewController {
             nav.pushViewController(createVC, animated: true)
             return
         }
-        // Fallback: no nav, set root to CreateAccount
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let createVC = storyboard.instantiateViewController(withIdentifier: "CreateAccount")
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -44,7 +38,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // Backward-compat alias — prevents crash if storyboard still references old selector
     @IBAction func signUpButtonType(_ sender: Any) {
         signUpButtonTapped(sender)
     }
@@ -61,7 +54,6 @@ class LoginViewController: UIViewController {
         }
         
         if let admin = CoreDataManager.shared.fetchAdmin(byEmail: email), admin.password == password {
-            // AuthManager updates user defaults AND transitions rootViewController to MainTabBarController
             AuthManager.shared.login(email: email)
         } else {
             showAlert(title: "Login Failed", message: "Invalid email or password.")

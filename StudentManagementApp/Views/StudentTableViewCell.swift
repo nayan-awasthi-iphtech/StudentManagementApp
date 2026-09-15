@@ -21,8 +21,6 @@ class StudentTableViewCell: UITableViewCell {
         
         cardView.layer.cornerRadius = 16
         cardView.layer.masksToBounds = false
-        // cardView.backgroundColor is set in storyboard (white = lighter than cream background)
-        // Do not override here so storyboard changes reflect at runtime
         cardView.layer.borderColor = UIColor.black.withAlphaComponent(0.08).cgColor
         cardView.layer.borderWidth = 1
         

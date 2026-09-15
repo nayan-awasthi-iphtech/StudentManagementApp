@@ -8,11 +8,9 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Drizzle/Dribbble theme is strictly Storyboard - runtime attrs handle 14pt cards + 28 pill
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // No programmatic cornerRadius - keep Storyboard values
     }
     
     @IBAction func SignUpTapped(_ sender: Any) {
@@ -26,7 +24,6 @@ class CreateAccountViewController: UIViewController {
         let success = CoreDataManager.shared.registerAdmin(name: name, email: email, password: password)
         
         if success {
-            // AuthManager.login already sets root to MainTabBarController (Students + Admin tabs) + preserves theme
             AuthManager.shared.login(email: email)
         } else {
             showAlert(title: "Registration Failed", message: "An account with this email is already registered")
@@ -34,15 +31,12 @@ class CreateAccountViewController: UIViewController {
     }
 
     @IBAction func loginButtonTapped(_ sender: Any) {
-        // Handle both modal present and nav push cases (Login as root vs CreateAccount as initial)
         if presentingViewController != nil {
             dismiss(animated: true)
         } else if let nav = navigationController, nav.viewControllers.count > 1 {
             nav.popViewController(animated: true)
         } else {
-            // CreateAccount was pushed from Login root nav -> pop, or if no nav fallback to setRoot to Login
             if let nav = navigationController {
-                // If Login is root, pop to it
                 for vc in nav.viewControllers {
                     if vc is LoginViewController {
                         nav.popToViewController(vc, animated: true)
@@ -50,7 +44,6 @@ class CreateAccountViewController: UIViewController {
                     }
                 }
             }
-            // Fallback: set root to Login — preserve theme
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
             let nav = UINavigationController(rootViewController: loginVC)
